@@ -1,0 +1,104 @@
+<div class=" content">
+    <flash-messages></flash-messages>
+    <div class=" row">
+        <div class=" col-md-12">
+            <div class=" card">
+                <div class=" card-header">
+                    <h5 class=" title">{{title}}</h5>
+                </div>
+                <div class=" card-body">
+                    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+                        <div class=" row">
+                            <div class=" col-md-4 pr-md-1">
+                                <div class="form-group">
+                                    <label for="courseName">
+                                        Course Name
+                                    </label>
+                                    <input class="form-control" id="courseName" type="text"
+                                        [ngClass]="{'invalid': isSubmitted  && courseForm.controls['courseName'].errors?.required}"
+                                        formControlName="courseName" required>
+                                </div>
+
+                            </div>
+                            <div class=" col-md-4 px-md-1">
+                                <div class="form-group">
+                                    <label for="category">
+                                        Category
+                                    </label>
+                                    <select class="form-control" id="category" formControlName="category"
+                                        [ngClass]="{'invalid': isSubmitted  && courseForm.controls['category'].errors?.required}">
+                                        <option *ngFor="let category of categories" [value]="category">{{category}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-8 pl-md-1">
+                                <div class="form-group">
+                                    <label for="courseContent">
+                                        Course Content
+                                    </label>
+                                    <textarea id="courseContent" class="form-control" type="text"
+                                        formControlName="courseContent"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-4 pr-md-1">
+                                <div class="form-group">
+                                    <label for="subTopics">
+                                        Sub Topics
+                                    </label>
+                                    <input id="subTopics" class="form-control" type="text" formControlName="subTopics">
+                                </div>
+                            </div>
+                            <div class=" col-md-4 pl-md-1">
+                                <div class="form-group">
+                                    <label for="link">
+                                        Link
+                                    </label>
+                                    <input id="link" class="form-control" type="text" formControlName="link">
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-4">
+                                <div class="form-group">
+                                    <label for="status">
+                                        Status
+                                    </label>
+                                    <select class="form-control" id="status" formControlName="status" required
+                                        [ngClass]="{'invalid': isSubmitted  && courseForm.controls['status'].errors?.required}">
+                                        <option *ngFor="let status of statuses" [value]="status">{{status}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class=" col-md-4 pr-md-1">
+                                <div class="form-group">
+                                    <label for="dueDate">
+                                        Due Date
+                                    </label>
+                                    <div>
+                                        <ngx-datepicker [formControl]="courseForm.controls['dueDate']" required>
+                                        </ngx-datepicker>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" row">
+                            <div class=" col-md-4">
+                                <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class=" card-footer">
+
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>

@@ -1,0 +1,48 @@
+
+<div [ngClass] = "{'content': !showStudentDashboard}">  
+  <div class=" row">    
+    <div class=" col-lg-12 col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title" *ngIf="!showStudentDashboard">{{title}}</h4>
+        </div>
+        <div class=" card-body">
+          <div>
+            <flash-messages></flash-messages>
+          </div>
+            
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Status</th>
+                  <th>Title</th>
+                  <th>Due Date</th>
+                  <th *ngIf="!isStudent">Students</th>
+                  <th *ngIf="isStudent">Progress %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of courses">
+                  <td>  {{course.status}}</td>
+                  <td>{{course.courseName}}</td>
+                  <td> {{course.dueDate | date}}</td>
+                  <td *ngIf="!isStudent"> {{course.studentCount}}</td>
+                  <td *ngIf="isStudent"> {{course.progress}}</td>
+                  <td *ngIf="isStudent"> <button class="button-style" (click) = "onOpen(course)">Open</button></td>
+                  <td *ngIf="!isStudent"> <button class="button-style" (click) = "onEdit(course)">Edit</button></td>
+                  <td *ngIf="!isStudent"> <button class="delete-button-style" (click) = "onDelete(course.courseId)">Delete</button></td>
+                </tr>               
+              </tbody>
+            </table>
+            <div class="main-div-button" *ngIf="!isStudent">
+              <div class="padding-20 pull-left">
+                <button class="main-button-style nav-item nav-link-edit" [routerLink]="['/courseeditor']">Add New Course</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+.width-50 {
+  width: 50%;
+}
+
+.width-25 {
+    width: 25%;
+  }
+
+.container {
+  font-family: sans-serif;
+}
+
+.rect {
+  width: 80%;
+  height: 60px;
+  background: #DFE69F;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+}
+
+.padding-5{
+    padding: 5px;
+}
+
+.button-style{
+    width: 200px!important;
+}
+
+.cell{
+    align-items: center;    
+    height: 60px;
+    float: left;
+    justify-content: left;
+    display: flex;
+    padding-left: 10px;
+}
+
+.font-bold{
+    font-weight: bold;
+}
+
+.padding-top-bottom-10{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.button-style {
+  background-color: #1aa3ff;
+  color: white;
+  padding: 8px;
+  width: 70px;
+  border-radius: 5px;
+  border-style: none;
+  width: 200px!important;
+}
